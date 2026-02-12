@@ -15,14 +15,36 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #1a1a1a;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e3e8f0 100%);
+            background: linear-gradient(135deg, #0f1729 0%, #1a1f3a 25%, #2d1b4e 50%, #4a1b5c 75%, #6b1b5f 100%);
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/mnt/user-data/uploads/Background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.6;
+            z-index: -1;
+            pointer-events: none;
         }
 
         .header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, rgba(15, 23, 41, 0.95) 0%, rgba(59, 27, 92, 0.95) 50%, rgba(107, 27, 95, 0.95) 100%);
+            backdrop-filter: blur(10px);
             color: white;
             padding: 2rem 1rem;
             text-align: center;
+            border-bottom: 2px solid rgba(219, 39, 119, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .logo-container {
@@ -37,13 +59,19 @@
         .logo {
             width: 150px;
             height: 150px;
-            background: white;
+            background: transparent;
             border-radius: 12px;
             padding: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+            filter: drop-shadow(0 8px 25px rgba(219, 39, 119, 0.4)) drop-shadow(0 0 40px rgba(59, 130, 246, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-5px) scale(1.05);
+            filter: drop-shadow(0 12px 35px rgba(219, 39, 119, 0.5)) drop-shadow(0 0 60px rgba(59, 130, 246, 0.4));
         }
 
         .logo img {
@@ -64,17 +92,22 @@
             letter-spacing: 2px;
             margin-bottom: 1rem;
             opacity: 0.9;
-            background: rgba(255,255,255,0.1);
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), rgba(219, 39, 119, 0.3));
             display: inline-block;
             padding: 0.5rem 1.5rem;
             border-radius: 20px;
+            border: 1px solid rgba(219, 39, 119, 0.4);
         }
 
         h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(219, 39, 119, 0.5);
+            background: linear-gradient(90deg, #60a5fa, #db2777, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .subtitle {
@@ -97,19 +130,22 @@
         }
 
         .nav-btn {
-            background: rgba(255,255,255,0.2);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(219, 39, 119, 0.3));
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
-            border: 2px solid white;
+            border: 2px solid rgba(219, 39, 119, 0.5);
             transition: all 0.3s;
             font-weight: 600;
+            backdrop-filter: blur(10px);
         }
 
         .nav-btn:hover {
-            background: white;
-            color: #1e3a8a;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(219, 39, 119, 0.6));
+            border-color: rgba(219, 39, 119, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(219, 39, 119, 0.4);
         }
 
         .container {
@@ -121,8 +157,8 @@
         .hero-image {
             width: 100%;
             height: 400px;
-            background: linear-gradient(rgba(30,58,138,0.85), rgba(59,130,246,0.85)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%231e3a8a" width="1200" height="400"/></svg>');
+            background: linear-gradient(135deg, rgba(15, 23, 41, 0.9), rgba(59, 27, 92, 0.9), rgba(107, 27, 95, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%230f1729" width="1200" height="400"/></svg>');
             background-size: cover;
             background-position: center;
             border-radius: 12px;
@@ -135,27 +171,36 @@
             font-weight: bold;
             text-align: center;
             padding: 2rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 80px rgba(219, 39, 119, 0.2);
+            border: 1px solid rgba(219, 39, 119, 0.3);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .section {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 2rem;
             border-radius: 12px;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 40px rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(219, 39, 119, 0.1);
         }
 
         .section h2 {
-            color: #1e3a8a;
+            color: #2d1b4e;
             margin-bottom: 1.5rem;
             font-size: 1.8rem;
-            border-bottom: 3px solid #3b82f6;
+            border-bottom: 3px solid transparent;
+            background: linear-gradient(90deg, #3b82f6, #db2777);
+            border-image: linear-gradient(90deg, #3b82f6, #db2777) 1;
             padding-bottom: 0.5rem;
         }
 
         .section h3 {
-            color: #3b82f6;
+            background: linear-gradient(90deg, #3b82f6, #db2777);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin: 1.5rem 0 1rem 0;
             font-size: 1.3rem;
         }
@@ -168,16 +213,23 @@
         }
 
         .detail-item {
-            border-left: 4px solid #3b82f6;
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(180deg, #3b82f6, #db2777) 1;
             padding-left: 1rem;
-            background: #f8fafc;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(219, 39, 119, 0.05));
             padding: 1rem;
             border-radius: 0 8px 8px 0;
+            transition: all 0.3s;
+        }
+
+        .detail-item:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(219, 39, 119, 0.1));
+            transform: translateX(5px);
         }
 
         .detail-label {
             font-weight: 700;
-            color: #1e3a8a;
+            color: #2d1b4e;
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
             text-transform: uppercase;
@@ -190,16 +242,24 @@
         }
 
         .speaker-card {
-            background: #f8fafc;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(219, 39, 119, 0.05));
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1rem;
-            border-left: 4px solid #3b82f6;
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(180deg, #3b82f6, #db2777) 1;
+            transition: all 0.3s;
+        }
+
+        .speaker-card:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(219, 39, 119, 0.1));
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(219, 39, 119, 0.2);
         }
 
         .speaker-name {
             font-weight: 700;
-            color: #1e3a8a;
+            color: #2d1b4e;
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
         }
@@ -221,16 +281,17 @@
         }
 
         .project-item {
-            background: #f8fafc;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(219, 39, 119, 0.05));
             padding: 1rem 1.5rem;
             margin-bottom: 0.75rem;
             border-radius: 8px;
-            border-left: 3px solid #3b82f6;
+            border-left: 3px solid transparent;
+            border-image: linear-gradient(180deg, #3b82f6, #db2777) 1;
         }
 
         .project-name {
             font-weight: 600;
-            color: #1e3a8a;
+            color: #2d1b4e;
             margin-bottom: 0.25rem;
         }
 
@@ -242,30 +303,35 @@
         .countdown {
             text-align: center;
             padding: 2rem;
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, rgba(15, 23, 41, 0.95) 0%, rgba(59, 27, 92, 0.95) 50%, rgba(107, 27, 95, 0.95) 100%);
+            backdrop-filter: blur(10px);
             color: white;
             border-radius: 12px;
             margin: 2rem 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 80px rgba(219, 39, 119, 0.3);
+            border: 1px solid rgba(219, 39, 119, 0.3);
         }
 
         .countdown-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
+            filter: drop-shadow(0 0 20px rgba(219, 39, 119, 0.5));
         }
 
         .countdown-timer {
             font-size: 1.8rem;
             font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(219, 39, 119, 0.5);
         }
 
         .notice-box {
-            background: #fef3c7;
+            background: linear-gradient(135deg, rgba(254, 243, 199, 0.95), rgba(252, 211, 77, 0.95));
+            backdrop-filter: blur(10px);
             border-left: 4px solid #f59e0b;
             padding: 1.5rem;
             border-radius: 8px;
             margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
         }
 
         .notice-icon {
@@ -285,7 +351,7 @@
 
         .cta-button {
             display: inline-block;
-            background: #1e3a8a;
+            background: linear-gradient(135deg, #3b82f6, #db2777);
             color: white;
             padding: 1rem 2rem;
             border-radius: 8px;
@@ -293,12 +359,12 @@
             font-weight: 600;
             transition: all 0.3s;
             margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(219, 39, 119, 0.3);
         }
 
         .cta-button:hover {
-            background: #3b82f6;
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(219, 39, 119, 0.5);
         }
 
         .form-group {
@@ -319,13 +385,15 @@
             border: 2px solid #e2e8f0;
             border-radius: 8px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
+            background: white;
         }
 
         .form-group input:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #3b82f6;
+            border-color: #db2777;
+            box-shadow: 0 0 0 3px rgba(219, 39, 119, 0.1);
         }
 
         .radio-group {
@@ -346,11 +414,11 @@
         }
 
         .radio-label:hover {
-            background: #f1f5f9;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(219, 39, 119, 0.1));
         }
 
         .submit-btn {
-            background: #1e3a8a;
+            background: linear-gradient(135deg, #3b82f6, #db2777);
             color: white;
             padding: 1rem 3rem;
             border: none;
@@ -360,12 +428,12 @@
             cursor: pointer;
             transition: all 0.3s;
             width: 100%;
+            box-shadow: 0 4px 15px rgba(219, 39, 119, 0.3);
         }
 
         .submit-btn:hover {
-            background: #3b82f6;
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(219, 39, 119, 0.5);
         }
 
         .privacy-note {
@@ -377,10 +445,12 @@
         }
 
         .footer {
-            background: #1e293b;
+            background: linear-gradient(135deg, rgba(15, 23, 41, 0.95) 0%, rgba(30, 27, 75, 0.95) 100%);
+            backdrop-filter: blur(10px);
             color: white;
             padding: 2rem;
             text-align: center;
+            border-top: 2px solid rgba(219, 39, 119, 0.3);
         }
 
         .footer-logos {
@@ -394,12 +464,19 @@
         .footer-logo {
             width: 100px;
             height: 100px;
-            background: white;
+            background: transparent;
             border-radius: 8px;
             padding: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            filter: drop-shadow(0 4px 20px rgba(219, 39, 119, 0.4)) drop-shadow(0 0 30px rgba(59, 130, 246, 0.3));
+            transition: all 0.3s;
+        }
+
+        .footer-logo:hover {
+            transform: translateY(-5px) scale(1.05);
+            filter: drop-shadow(0 8px 30px rgba(219, 39, 119, 0.5)) drop-shadow(0 0 50px rgba(59, 130, 246, 0.4));
         }
 
         .footer-logo img {
@@ -416,12 +493,13 @@
         }
 
         .reference-info {
-            background: #f1f5f9;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(219, 39, 119, 0.1));
             padding: 1rem;
             border-radius: 8px;
             font-size: 0.9rem;
             color: #475569;
             margin-top: 1rem;
+            border: 1px solid rgba(219, 39, 119, 0.2);
         }
 
         @media (max-width: 768px) {
@@ -471,29 +549,45 @@
         }
 
         .accordion-header {
-            background: #f1f5f9;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(219, 39, 119, 0.1));
             padding: 1rem;
             cursor: pointer;
             border-radius: 8px;
             font-weight: 600;
-            color: #1e3a8a;
-            transition: background 0.3s;
+            color: #2d1b4e;
+            transition: all 0.3s;
+            border: 1px solid rgba(219, 39, 119, 0.2);
         }
 
         .accordion-header:hover {
-            background: #e2e8f0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(219, 39, 119, 0.2));
+            transform: translateX(5px);
         }
 
         .accordion-content {
             display: none;
             padding: 1rem;
-            background: #f8fafc;
+            background: rgba(248, 250, 252, 0.8);
             border-radius: 0 0 8px 8px;
             margin-top: -4px;
         }
 
         .accordion-content.active {
             display: block;
+        }
+
+        /* Animated network nodes effect */
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .section::before {
+            animation: pulse 3s ease-in-out infinite;
         }
     </style>
 </head>
@@ -521,7 +615,6 @@
             <a href="#rsvp" class="nav-btn">RSVP</a>
             <a href="#details" class="nav-btn">Session Details</a>
             <a href="#speakers" class="nav-btn">Speakers</a>
-            
         </div>
     </header>
 
@@ -560,7 +653,7 @@
             </div>
             <div class="reference-info">
                 <strong>Reference:</strong> Dte Gen of EME (IT)<br>
-                <strong>Website:</strong> <a href="https://impact.indiaai.gov.in" target="_blank" style="color: #3b82f6;">impact.indiaai.gov.in</a>
+                <strong>Website:</strong> <a href="https://impact.indiaai.gov.in" target="_blank" style="color: #db2777;">impact.indiaai.gov.in</a>
             </div>
         </section>
 
@@ -585,7 +678,7 @@
                 <div class="speaker-duration"></div>
             </div>
 
-            <h3>Military Perspective<h3>
+            <h3>Military Perspective</h3>
 
             <div class="speaker-card">
                 <div class="speaker-name">Maj Gen Mohit Gandhi, Commandant EME School</div>
@@ -627,10 +720,6 @@
             </div>
         </section>
 
-      
-
-
-
         <div class="notice-box">
             <div class="notice-icon">⚠️</div>
             <h3>Important Notice</h3>
@@ -644,32 +733,26 @@
 
         <section class="section" id="rsvp">
             <h2>✉️ RSVP for AI in Sustenance Seminar</h2>
-            <p style="margin-bottom: 1.5rem; color: #475569;">Please fill out this form to help us coordinate the seminar. Official Summit registration is required separately.</p>
-                      <section class="section" id="rsvp">
-  <h2>✉️ RSVP for AI in Sustenance Seminar</h2>
-  <p style="margin-bottom: 1.5rem; color: #475569;">
-    Please submit your RSVP below. Official Summit registration is mandatory and separate.
-  </p>
+            <p style="margin-bottom: 1.5rem; color: #475569;">
+                Please submit your RSVP below. Official Summit registration is mandatory and separate.
+            </p>
 
-  <div style="display: flex; justify-content: center;">
-    <iframe 
-      src="https://docs.google.com/forms/d/e/1FAIpQLSfw6RGRpHUby89wHYxSiFbUV0qfTdLS3Lec08yIK1yS9K7kwQ/viewform?embedded=true"
-      width="100%"
-      height="900"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0">
-      Loading…
-    </iframe>
-  </div>
+            <div style="display: flex; justify-content: center;">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfw6RGRpHUby89wHYxSiFbUV0qfTdLS3Lec08yIK1yS9K7kwQ/viewform?embedded=true"
+                    width="100%"
+                    height="900"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0"
+                    style="border-radius: 8px; box-shadow: 0 4px 20px rgba(219, 39, 119, 0.2);">
+                    Loading…
+                </iframe>
+            </div>
 
-  <p class="privacy-note">
-    Information collected is solely for coordination of the AI in Sustenance seminar.
-  </p>
-</section>
-             
-         
-            <p class="privacy-note">Information collected is solely for coordination of the AI in Sustenance seminar and will be handled in accordance with data protection guidelines.</p>
+            <p class="privacy-note">
+                Information collected is solely for coordination of the AI in Sustenance seminar and will be handled in accordance with data protection guidelines.
+            </p>
         </section>
     </div>
 
@@ -712,52 +795,6 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
-
-        // Accordion Toggle
-        function toggleAccordion(header) {
-            const content = header.nextElementSibling;
-            const allContents = document.querySelectorAll('.accordion-content');
-            const allHeaders = document.querySelectorAll('.accordion-header');
-            
-            // Close all accordions
-            allContents.forEach(c => {
-                if (c !== content) {
-                    c.classList.remove('active');
-                }
-            });
-            
-            allHeaders.forEach(h => {
-                if (h !== header) {
-                    h.innerHTML = h.innerHTML.replace('▲', '▼');
-                }
-            });
-            
-            // Toggle current accordion
-            content.classList.toggle('active');
-            if (content.classList.contains('active')) {
-                header.innerHTML = header.innerHTML.replace('▼', '▲');
-            } else {
-                header.innerHTML = header.innerHTML.replace('▲', '▼');
-            }
-        }
-
-        // Form Submission
-        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                fullName: document.getElementById('fullName').value,
-                email: document.getElementById('email').value,
-                organisation: document.getElementById('organisation').value,
-                designation: document.getElementById('designation').value,
-                mobile: document.getElementById('mobile').value,
-                rsvpStatus: document.querySelector('input[name="rsvpStatus"]:checked').value
-            };
-
-            alert('Thank you for your RSVP!\n\nYour response has been recorded.\n\nIMPORTANT REMINDER:\nPlease complete official registration at:\nhttps://impact.indiaai.gov.in/registration\n\nFor queries, contact:\nCol AK Sinha, DG EME\n📞 87299 12491');
-            
-            this.reset();
-        });
 
         // Smooth Scrolling for Navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
